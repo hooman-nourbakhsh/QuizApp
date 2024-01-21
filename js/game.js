@@ -1,7 +1,6 @@
 import formatData from "./helper.js";
 
-const CORRECT_BONUS = 10;
-const URL = "https://opentdb.com/api.php?amount=10&difficulty=medium&type=multiple";
+const level = localStorage.getItem("level") || "medium";
 
 const loader = document.getElementById("loader");
 const container = document.getElementById("container");
@@ -11,6 +10,9 @@ const scoreText = document.getElementById("score");
 const nextButton = document.getElementById("next-button");
 const finishButton = document.getElementById("finish-button");
 const questionNumber = document.getElementById("question-number");
+
+const CORRECT_BONUS = 10;
+const URL = `https://opentdb.com/api.php?amount=10&difficulty=${level}&type=multiple`;
 
 let formattedData = null;
 let questionIndex = 0;
