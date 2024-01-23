@@ -36,3 +36,8 @@ a:hover {
   background-color: #6757d9;
   color: #fff;
 }
+@media (max-width: 400px) {
+  h3 {
+    font-size: 1.5rem;
+  }
+}

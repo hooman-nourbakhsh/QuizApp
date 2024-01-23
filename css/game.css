@@ -27,7 +27,7 @@
   margin-bottom: 50px;
   gap: 2rem;
 }
-.header div {  
+.header div {
   display: flex;
   align-items: center;
 }
@@ -49,17 +49,17 @@
   color: #6757d9;
   border-radius: 4px;
 }
-.header div:nth-child(2){
+.header div:nth-child(2) {
   justify-content: end;
 }
-#category-box span{
+#category-box span {
   width: fit-content;
   padding: 5px;
   height: auto;
   text-align: left;
 }
 #category-box {
-  grid-column:  3 / 1 ;
+  grid-column: 3 / 1;
 }
 #question-box {
   display: flex;
@@ -120,4 +120,21 @@
   display: none;
   color: #fe6681;
   font-size: 1.5rem;
+}
+@media (max-width: 700px) {
+  #container {
+    width: 100%;
+    padding: 0px 10px;
+  }
+  .header p,
+  .header span,
+  .answer-text,
+  #question-box h3,
+  #error {
+    font-size: 1rem;
+  }
+  #category-box {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
