@@ -41,13 +41,13 @@ const start = () => {
 };
 
 const showQuestion = () => {
-  questionNumber.innerText = questionIndex + 1;
+  questionNumber.innerHTML = questionIndex + 1;
   const { question, answers, correctAnswerIndex ,category} = formattedData[questionIndex];
-  categoryText.innerText = category;
+  categoryText.innerHTML = category;
   correctAnswer = correctAnswerIndex;
-  questionText.innerText = question;
+  questionText.innerHTML = question;
   answerList.forEach((button, index) => {
-    button.innerText = answers[index];
+    button.innerHTML = answers[index];
   });
 };
 
