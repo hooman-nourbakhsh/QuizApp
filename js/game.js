@@ -10,6 +10,8 @@ const scoreText = document.getElementById("score");
 const nextButton = document.getElementById("next-button");
 const finishButton = document.getElementById("finish-button");
 const questionNumber = document.getElementById("question-number");
+const error = document.getElementById("error");
+const categoryText = document.getElementById("category-text");
 
 const CORRECT_BONUS = 10;
 const URL = `https://opentdb.com/api.php?amount=10&difficulty=${level}&type=multiple`;
@@ -21,10 +23,15 @@ let score = 0;
 let isAccepted = true;
 
 const fetchData = async () => {
-  const response = await fetch(URL);
-  const json = await response.json();
-  formattedData = formatData(json.results);
-  start();
+  try {
+    const response = await fetch(URL);
+    const json = await response.json();
+    formattedData = formatData(json.results);
+    start();
+  } catch (errorObject) {
+    loader.style.display = "none";
+    error.style.display = "block";
+  }
 };
 
 const start = () => {
@@ -35,7 +42,8 @@ const start = () => {
 
 const showQuestion = () => {
   questionNumber.innerText = questionIndex + 1;
-  const { question, answers, correctAnswerIndex } = formattedData[questionIndex];
+  const { question, answers, correctAnswerIndex ,category} = formattedData[questionIndex];
+  categoryText.innerText = category;
   correctAnswer = correctAnswerIndex;
   questionText.innerText = question;
   answerList.forEach((button, index) => {
